@@ -235,14 +235,15 @@ voice_assistant:
   auto_gain: 31dBFS
 
   volume_multiplier: 2.0
-  on_listening:
-    # - lambda: id(voice_assistant_phase) = ${voice_assist_listening_phase_id};
-    # TODO: adicionar algo com o led
-  on_stt_vad_end:
-    # - lambda: id(voice_assistant_phase) = ${voice_assist_thinking_phase_id};
-    # TODO: adicionar algo com o led
+  # não pode ficar vazio
+  # on_listening:
+  #   # - lambda: id(voice_assistant_phase) = ${voice_assist_listening_phase_id};
+  #   # TODO: adicionar algo com o led
+  # on_stt_vad_end:
+  #   # - lambda: id(voice_assistant_phase) = ${voice_assist_thinking_phase_id};
+  #   # TODO: adicionar algo com o led
 
-  on_tts_start:
+  # on_tts_start:
     # - lambda: id(voice_assistant_phase) = ${voice_assist_replying_phase_id};
         # TODO: adicionar algo com o led
 
