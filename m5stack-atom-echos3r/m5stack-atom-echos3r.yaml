@@ -117,7 +117,7 @@ audio_dac:
 
 microphone:
   - platform: i2s_audio
-    id: i2s_mic
+    id: echos3r_microphone
     sample_rate: 16000
     i2s_din_pin: GPIO4
     bits_per_sample: 16bit
@@ -714,7 +714,7 @@ select:
 
 micro_wake_word:
   id: mww
-  microphone: i2s_mic
+  microphone: echos3r_microphone
   stop_after_detection: false
   models:
     - model: okay_nabu
