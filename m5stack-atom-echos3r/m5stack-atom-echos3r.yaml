@@ -97,11 +97,11 @@ i2s_audio:
     i2s_bclk_pin: GPIO17
     i2s_mclk_pin: GPIO11
 
-# audio_dac:
-#   - platform: es8311
-#     id: es8311_dac
-#     bits_per_sample: 16bit
-#     sample_rate: 48000
+audio_dac:
+  - platform: es8311
+    id: es8311_dac
+    bits_per_sample: 16bit
+    sample_rate: 48000
 
 microphone:
   - platform: i2s_audio
@@ -183,7 +183,7 @@ media_player:
       #       - script.execute: set_idle_or_mute_phase
       # aqui também é mais simples no echo normal
       - script.execute: start_wake_word
-      - script.execute: reset_led
+     # - script.execute: reset_led
 
 # versão do echo
 # media_player:
@@ -226,9 +226,9 @@ voice_assistant:
   #microphone: i2s_mic
   # media_player: speaker_media_player
   micro_wake_word:
-  media_player: echo_media_player
+  media_player: echos3r_media_player
   microphone:
-    microphone: echo_microphone # TODO: mudar nome do microfone
+    microphone: echos3r_microphone # TODO: mudar nome do microfone
     channels: 0
     gain_factor: 4
   noise_suppression_level: 2
@@ -271,7 +271,7 @@ voice_assistant:
                       speaker.is_playing:
           - lambda: id(va).set_use_wake_word(false);
           - micro_wake_word.start:
-    - script.execute: set_idle_or_mute_phase
+   # - script.execute: set_idle_or_mute_phase
 
 
 #echos3r
@@ -336,7 +336,7 @@ voice_assistant:
     #     brightness: 100%
     #     effect: none
     - delay: 2s
-    - script.execute: set_idle_or_mute_phase
+   # - script.execute: set_idle_or_mute_phase
 
 
   on_client_connected:
@@ -507,15 +507,15 @@ script:
 
 # no echo normal isso seria o reset_let, mas já que não tem rgb essa é a finalização
   # Set the voice assistant phase to idle or muted, depending on if the software mute switch is activated
-  - id: set_idle_or_mute_phase
-    then:
-      - if:
-          condition:
-            switch.is_off: mute
-          then:
-            - lambda: id(voice_assistant_phase) = ${voice_assist_idle_phase_id};
-          else:
-            - lambda: id(voice_assistant_phase) = ${voice_assist_muted_phase_id};
+  # - id: set_idle_or_mute_phase
+  #   then:
+  #     # - if:
+  #     #     condition:
+  #     #       switch.is_off: mute
+  #     #     then:
+  #           - lambda: id(voice_assistant_phase) = ${voice_assist_idle_phase_id};
+  #         # else:
+  #         #   - lambda: id(voice_assistant_phase) = ${voice_assist_muted_phase_id};
   
   # - id: play_sound
   #   parameters:
